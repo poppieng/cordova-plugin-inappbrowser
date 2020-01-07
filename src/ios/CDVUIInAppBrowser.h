@@ -16,7 +16,7 @@
  specific language governing permissions and limitations
  under the License.
  */
-
+#if !WK_WEB_VIEW_ONLY
 #import <Cordova/CDVPlugin.h>
 #import <Cordova/CDVInvokedUrlCommand.h>
 #import <Cordova/CDVScreenOrientationDelegate.h>
@@ -89,3 +89,4 @@
 - (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserOptions*) browserOptions;
 
 @end
+#endif

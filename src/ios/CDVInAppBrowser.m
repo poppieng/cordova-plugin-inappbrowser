@@ -19,10 +19,9 @@
 
 #import "CDVInAppBrowser.h"
 #import "CDVInAppBrowserOptions.h"
-<<<<<<< HEAD
-=======
+#if !WK_WEB_VIEW_ONLY
 #import "CDVUIInAppBrowser.h"
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+#endif
 #import "CDVWKInAppBrowser.h"
 #import <Cordova/CDVPluginResult.h>
 
@@ -52,122 +51,121 @@
         return;
     }
     self.usewkwebview = browserOptions.usewkwebview;
-<<<<<<< HEAD
-    [[CDVWKInAppBrowser getInstance] open:command];
-
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] open:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] open:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #if WK_WEB_VIEW_ONLY
+      [[CDVWKInAppBrowser getInstance] open:command];
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] open:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] open:command];
+      }
+    #endif
 }
 
 - (void)close:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] close:command];
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] close:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] close:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] close:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] close:command];
+      }
+    #endif
 }
 
 
 - (void)show:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] show:command];
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] show:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] show:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] show:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] show:command];
+      }
+    #endif
 }
 
 - (void)hide:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] hide:command];
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] hide:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] hide:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] hide:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] hide:command];
+      }
+    #endif
 }
 
 
 - (void)injectScriptCode:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] injectScriptCode:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] injectScriptCode:command];
+      }
+    #endif
 }
 
 - (void)injectScriptFile:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
-=======
-     if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] injectScriptFile:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] injectScriptFile:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] injectScriptCode:command];
+      }
+    #endif
 }
 
 - (void)injectStyleCode:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectStyleCode:command];
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] injectStyleCode:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] injectStyleCode:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] injectStyleCode:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] injectStyleCode:command];
+      }
+    #endif
 }
 
 - (void)injectStyleFile:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectStyleFile:command];
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] injectStyleFile:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] injectStyleFile:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] injectStyleFile:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] injectStyleFile:command];
+      }
+    #endif
 }
 
 - (void)loadAfterBeforeload:(CDVInvokedUrlCommand*)command
 {
-<<<<<<< HEAD
+    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] loadAfterBeforeload:command];
-=======
-    if(self.usewkwebview){
-        [[CDVWKInAppBrowser getInstance] loadAfterBeforeload:command];
-    }else{
-        [[CDVUIInAppBrowser getInstance] loadAfterBeforeload:command];
-    }
->>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
+    #else
+      if(self.usewkwebview){
+          [[CDVWKInAppBrowser getInstance] loadAfterBeforeload:command];
+      }else{
+          [[CDVUIInAppBrowser getInstance] loadAfterBeforeload:command];
+      }
+    #endif
 }
 
 
