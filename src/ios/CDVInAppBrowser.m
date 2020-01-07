@@ -19,6 +19,10 @@
 
 #import "CDVInAppBrowser.h"
 #import "CDVInAppBrowserOptions.h"
+<<<<<<< HEAD
+=======
+#import "CDVUIInAppBrowser.h"
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 #import "CDVWKInAppBrowser.h"
 #import <Cordova/CDVPluginResult.h>
 
@@ -48,50 +52,122 @@
         return;
     }
     self.usewkwebview = browserOptions.usewkwebview;
+<<<<<<< HEAD
     [[CDVWKInAppBrowser getInstance] open:command];
 
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] open:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] open:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 - (void)close:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] close:command];
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] close:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] close:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 
 - (void)show:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] show:command];
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] show:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] show:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 - (void)hide:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] hide:command];
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] hide:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] hide:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 
 - (void)injectScriptCode:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] injectScriptCode:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 - (void)injectScriptFile:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
+=======
+     if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] injectScriptFile:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] injectScriptFile:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 - (void)injectStyleCode:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] injectStyleCode:command];
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] injectStyleCode:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] injectStyleCode:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 - (void)injectStyleFile:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] injectStyleFile:command];
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] injectStyleFile:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] injectStyleFile:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 - (void)loadAfterBeforeload:(CDVInvokedUrlCommand*)command
 {
+<<<<<<< HEAD
       [[CDVWKInAppBrowser getInstance] loadAfterBeforeload:command];
+=======
+    if(self.usewkwebview){
+        [[CDVWKInAppBrowser getInstance] loadAfterBeforeload:command];
+    }else{
+        [[CDVUIInAppBrowser getInstance] loadAfterBeforeload:command];
+    }
+>>>>>>> parent of 24908f4... feat: Add compile-time decision for disabling UIWebView
 }
 
 
