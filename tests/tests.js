@@ -543,20 +543,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
     var injectjs = isWindows ? basePath + 'inject.js' : 'inject.js';
     var injectcss = isWindows ? basePath + 'inject.css' : 'inject.css';
     var videohtml = basePath + 'video.html';
-    if (isIos) {
-        createActionButton('Webview=UIWebView', function () {
-            var webviewOption = 'usewkwebview=';
-            var webviewToggle = document.getElementById('webviewToggle');
-            var button = webviewToggle.getElementsByClassName('topcoat-button')[0];
-            if (platformOpts === webviewOption + 'yes') {
-                platformOpts = webviewOption + 'no';
-                button.textContent = 'Webview=UIWebView';
-            } else {
-                platformOpts = webviewOption + 'yes';
-                button.textContent = 'Webview=WKWebView';
-            }
-        }, 'webviewToggle');
-    }
+
 
     // Local
     createActionButton('target=Default', function () {

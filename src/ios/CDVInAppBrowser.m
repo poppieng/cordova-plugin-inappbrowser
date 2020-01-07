@@ -19,9 +19,6 @@
 
 #import "CDVInAppBrowser.h"
 #import "CDVInAppBrowserOptions.h"
-#if !WK_WEB_VIEW_ONLY
-#import "CDVUIInAppBrowser.h"
-#endif
 #import "CDVWKInAppBrowser.h"
 #import <Cordova/CDVPluginResult.h>
 
@@ -51,121 +48,50 @@
         return;
     }
     self.usewkwebview = browserOptions.usewkwebview;
-    #if WK_WEB_VIEW_ONLY
-      [[CDVWKInAppBrowser getInstance] open:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] open:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] open:command];
-      }
-    #endif
+    [[CDVWKInAppBrowser getInstance] open:command];
+
 }
 
 - (void)close:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] close:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] close:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] close:command];
-      }
-    #endif
 }
 
 
 - (void)show:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] show:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] show:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] show:command];
-      }
-    #endif
 }
 
 - (void)hide:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] hide:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] hide:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] hide:command];
-      }
-    #endif
 }
 
 
 - (void)injectScriptCode:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] injectScriptCode:command];
-      }
-    #endif
 }
 
 - (void)injectScriptFile:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] injectScriptCode:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] injectScriptCode:command];
-      }
-    #endif
 }
 
 - (void)injectStyleCode:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectStyleCode:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] injectStyleCode:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] injectStyleCode:command];
-      }
-    #endif
 }
 
 - (void)injectStyleFile:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] injectStyleFile:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] injectStyleFile:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] injectStyleFile:command];
-      }
-    #endif
 }
 
 - (void)loadAfterBeforeload:(CDVInvokedUrlCommand*)command
 {
-    #if WK_WEB_VIEW_ONLY
       [[CDVWKInAppBrowser getInstance] loadAfterBeforeload:command];
-    #else
-      if(self.usewkwebview){
-          [[CDVWKInAppBrowser getInstance] loadAfterBeforeload:command];
-      }else{
-          [[CDVUIInAppBrowser getInstance] loadAfterBeforeload:command];
-      }
-    #endif
 }
 
 
